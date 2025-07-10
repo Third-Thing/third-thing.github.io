@@ -1,0 +1,146 @@
+<!--
+  Third‑Thing Master Template (sub‑category aware)
+  ------------------------------------------------
+  • Expects the same context keys as the legacy template *plus*
+      SUBGROUPS — an OrderedDict { subcategory → [artifact objects] }
+  • Keeps original look‑and‑feel (v4.1 CSS) so old pages appear identical.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Third Thing: Interaction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* --- Minimalist Standard Artifact CSS (v4.2) --- */
+        body { background:#F9FAFB; color:#1F2937; font-family:sans-serif; line-height:1.6; }
+        .main-container { max-width:56rem; margin:auto; padding:2rem; }
+        .site-header { background:#FFF; border-radius:0.75rem; box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1),0 2px 4px -2px rgb(0 0 0 / 0.1); padding:1rem 1.5rem; border:1px solid #E5E7EB; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; margin-bottom:2rem; }
+        .site-title { font-weight:700; font-size:1.25rem; display:flex; align-items:center; margin-right:1rem; }
+        .site-title img { width:32px; height:32px; margin-right:0.75rem; }
+        .site-nav { display:flex; flex-wrap:wrap; align-items:center; }
+        .site-nav a { color:#4B5563; font-weight:500; margin-left:1.5rem; transition:color .2s; padding:.5rem 0; }
+        .site-nav a:hover { color:#111827; }
+        .site-nav a.current-page { color:#4F46E5; font-weight:600; }
+        .artifact-container { background:#FFF; border-radius:0.75rem; box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1); padding:2.5rem; border:1px solid #E5E7EB; }
+        .artifact-header h1 { font-size:2.25rem; font-weight:700; color:#111827; margin-bottom:.5rem; }
+        .artifact-header p { font-size:1.125rem; color:#4B5563; margin-bottom:2rem; border-bottom:1px solid #E5E7EB; padding-bottom:1rem; }
+        .toc { background:#F9FAFB; border:1px solid #E5E7EB; border-radius:0.5rem; padding:1.5rem; margin-bottom:2.5rem; }
+        .toc h2 { font-weight:600; color:#111827; margin-bottom:1rem; }
+        .toc ul { list-style:none; padding:0; }
+        .toc li a { color:#374151; text-decoration:none; transition:color .2s; }
+        .toc li a:hover { color:#0D9488; }
+        .archived-artifact { margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid #E5E7EB; scroll-margin-top:2rem; }
+        .archived-artifact:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+        .archived-artifact>h2 { display:block; font-size:1.5rem; font-weight:600; color:#1F2937; margin-bottom:1rem; border-left:4px solid #ccc; padding-left:1rem; }
+        /* Legacy color map (will still work for old categories) */
+        .archived-artifact.guide       >h2 { border-left-color:#0D9488; }
+        .archived-artifact.model       >h2 { border-left-color:#8B5CF6; }
+        .archived-artifact.question    >h2 { border-left-color:#10B981; }
+        .archived-artifact.event       >h2 { border-left-color:#F59E0B; }
+        .archived-artifact.principle   >h2 { border-left-color:#4F46E5; }
+        /* New pillar color map */
+        .archived-artifact.psychology  >h2 { border-left-color:#0D9488; }
+        .archived-artifact.philosophy  >h2 { border-left-color:#4F46E5; }
+        .archived-artifact.interaction >h2 { border-left-color:#F59E0B; }
+        /* Wrapper ensures consistent indentation */
+        .content-wrapper { padding-left:1.5rem; }
+        .content-wrapper>*+* { margin-top:1rem; }
+        .content-wrapper h3 { font-size:1.25rem; font-weight:600; color:#374151; margin-top:1.5rem; }
+        .content-wrapper ul,.content-wrapper ol { list-style-position:inside; padding-left:1rem; }
+        .content-wrapper ul { list-style-type:'› '; }
+        .content-wrapper ol { list-style-type:decimal; }
+        .content-wrapper li { margin-bottom:.25rem; }
+        .content-wrapper blockquote { padding:1rem; background:#F9FAFB; border-left:4px solid #D1D5DB; color:#4B5563; font-style:italic; }
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <!-- Header & Nav -->
+    <header class="site-header">
+        <div class="site-title"><img src="https://i.imgur.com/G5g04k4.png" alt="!|? Glyph"><span>Third Thing</span></div>
+        <nav class="site-nav">
+            
+                <a href="index.html" class="">Home</a>
+            
+                <a href="philosophy.html" class="">Philosophy</a>
+            
+                <a href="interaction.html" class="current-page">Interaction</a>
+            
+        </nav>
+    </header>
+
+    <!-- Body -->
+    <main>
+        <div class="artifact-container">
+            <!-- Intro -->
+            <header class="artifact-header">
+                <h1>Interaction</h1>
+                <p>Artifacts for Interaction.</p>
+            </header>
+
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h2>On This Page</h2>
+                <ul>
+                    
+                        <li>
+                            <strong>Communication Techniques</strong>
+                            <ul class="pl-4 mt-1 space-y-1 list-[circle] list-inside">
+                                
+                                    <li><a href="#speaking-in-specifics">Speaking in Specifics</a></li>
+                                
+                            </ul>
+                        </li>
+                    
+                </ul>
+            </div>
+
+            <!-- Artifacts grouped by sub‑category -->
+            
+            
+                <h2 class="text-xl font-semibold text-slate-700 mb-4" id="sub-Communication-Techniques">Communication Techniques</h2>
+                
+                    <article id="speaking-in-specifics" class="archived-artifact interaction">
+                        <h2>Speaking in Specifics</h2>
+                        <div class="content-wrapper">
+                            <p><em>A practical guide for preventing unnecessary conflict by moving from vague, abstract judgments to clear, specific expression.</em></p>
+                            <p>This guide provides a method for descending the &quot;abstraction ladder&quot; to prevent misunderstandings before they become conflicts. The core practice is to express our actual needs, desires, and observations clearly, rather than packaging them in vague, universal judgments.</p>
+<h3>1. How high are you on the abstraction ladder?</h3>
+<p>Most unnecessary conflicts arise from speaking at a high level of abstraction, which creates ambiguity. Ground-level expression, rooted in specific experience, fosters understanding even amid disagreement.</p>
+<p><strong>Top Level (Abstract):</strong> &quot;That's absurd. They don't understand anything.&quot;</p>
+<p><strong>Ground Level (Specific):</strong> &quot;When they claimed X, it contradicted my direct experience with Y, which leads me to believe their model is incomplete.&quot;</p>
+<h3>2. Is it your experience or universal truth?</h3>
+<p>We naturally generalize from our experiences, but presenting these generalizations as objective facts creates immediate conflict by invalidating the different experiences of others. The key is to own our experience <em>as our experience</em>.</p>
+<p><strong>Universal Claim:</strong> &quot;Doctors don't listen.&quot;</p>
+<p><strong>Specific Experience:</strong> &quot;During my last appointment, my doctor interrupted me and didn't address my primary concern.&quot;</p>
+<h3>3. What's motivating you?</h3>
+<p>Behind every abstract complaint is a specific, motivating driver: a need, desire, belief, or priority. Identifying this driver allows us to express ourselves more clearly and transform a vague attack into a concrete, discussable issue.</p>
+<p><strong>Abstract Attack:</strong> &quot;I can't live with a slob.&quot;</p>
+<p><strong>Specific Motivation:</strong> &quot;My standard for household cleanliness isn't being met, and that's creating significant stress for me.&quot;</p>
+<h3>4. How can your language create possibility?</h3>
+<p>Prescriptive or absolute language (&quot;You must,&quot; &quot;The fact is...&quot;) triggers psychological reactance, causing others to resist instinctively. Tentative language defuses this by creating space for others to consider a perspective without feeling cornered.</p>
+<p><strong>Certainty (Closes Possibility):</strong> &quot;This proves my point.&quot;</p>
+<p><strong>Tentative (Opens Possibility):</strong> &quot;My experience suggests this might be the case.&quot;</p>
+<h3>5. How can curiosity build bridges?</h3>
+<p>When faced with an abstract claim, the instinct is to counter with another abstraction, creating a &quot;war of abstractions.&quot; A more productive approach is to use curiosity to guide the conversation down the ladder to specifics.</p>
+<ul>
+<li>&quot;What specific impacts of that policy concern you the most?&quot;</li>
+<li>&quot;Can you give me an example of when this caused a problem?&quot;</li>
+<li>&quot;What would need to be different for this to work for you?&quot;</li>
+</ul>
+<blockquote>
+<p>Curiosity builds bridges, where certainty builds walls.</p>
+</blockquote>
+
+                        </div>
+                    </article>
+                
+            
+
+        </div>
+    </main>
+</div>
+</body>
+</html>

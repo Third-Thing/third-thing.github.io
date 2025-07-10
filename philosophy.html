@@ -1,0 +1,141 @@
+<!--
+  Third‑Thing Master Template (sub‑category aware)
+  ------------------------------------------------
+  • Expects the same context keys as the legacy template *plus*
+      SUBGROUPS — an OrderedDict { subcategory → [artifact objects] }
+  • Keeps original look‑and‑feel (v4.1 CSS) so old pages appear identical.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Third Thing: Philosophy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* --- Minimalist Standard Artifact CSS (v4.2) --- */
+        body { background:#F9FAFB; color:#1F2937; font-family:sans-serif; line-height:1.6; }
+        .main-container { max-width:56rem; margin:auto; padding:2rem; }
+        .site-header { background:#FFF; border-radius:0.75rem; box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1),0 2px 4px -2px rgb(0 0 0 / 0.1); padding:1rem 1.5rem; border:1px solid #E5E7EB; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; margin-bottom:2rem; }
+        .site-title { font-weight:700; font-size:1.25rem; display:flex; align-items:center; margin-right:1rem; }
+        .site-title img { width:32px; height:32px; margin-right:0.75rem; }
+        .site-nav { display:flex; flex-wrap:wrap; align-items:center; }
+        .site-nav a { color:#4B5563; font-weight:500; margin-left:1.5rem; transition:color .2s; padding:.5rem 0; }
+        .site-nav a:hover { color:#111827; }
+        .site-nav a.current-page { color:#4F46E5; font-weight:600; }
+        .artifact-container { background:#FFF; border-radius:0.75rem; box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1),0 4px 6px -4px rgb(0 0 0 / 0.1); padding:2.5rem; border:1px solid #E5E7EB; }
+        .artifact-header h1 { font-size:2.25rem; font-weight:700; color:#111827; margin-bottom:.5rem; }
+        .artifact-header p { font-size:1.125rem; color:#4B5563; margin-bottom:2rem; border-bottom:1px solid #E5E7EB; padding-bottom:1rem; }
+        .toc { background:#F9FAFB; border:1px solid #E5E7EB; border-radius:0.5rem; padding:1.5rem; margin-bottom:2.5rem; }
+        .toc h2 { font-weight:600; color:#111827; margin-bottom:1rem; }
+        .toc ul { list-style:none; padding:0; }
+        .toc li a { color:#374151; text-decoration:none; transition:color .2s; }
+        .toc li a:hover { color:#0D9488; }
+        .archived-artifact { margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid #E5E7EB; scroll-margin-top:2rem; }
+        .archived-artifact:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+        .archived-artifact>h2 { display:block; font-size:1.5rem; font-weight:600; color:#1F2937; margin-bottom:1rem; border-left:4px solid #ccc; padding-left:1rem; }
+        /* Legacy color map (will still work for old categories) */
+        .archived-artifact.guide       >h2 { border-left-color:#0D9488; }
+        .archived-artifact.model       >h2 { border-left-color:#8B5CF6; }
+        .archived-artifact.question    >h2 { border-left-color:#10B981; }
+        .archived-artifact.event       >h2 { border-left-color:#F59E0B; }
+        .archived-artifact.principle   >h2 { border-left-color:#4F46E5; }
+        /* New pillar color map */
+        .archived-artifact.psychology  >h2 { border-left-color:#0D9488; }
+        .archived-artifact.philosophy  >h2 { border-left-color:#4F46E5; }
+        .archived-artifact.interaction >h2 { border-left-color:#F59E0B; }
+        /* Wrapper ensures consistent indentation */
+        .content-wrapper { padding-left:1.5rem; }
+        .content-wrapper>*+* { margin-top:1rem; }
+        .content-wrapper h3 { font-size:1.25rem; font-weight:600; color:#374151; margin-top:1.5rem; }
+        .content-wrapper ul,.content-wrapper ol { list-style-position:inside; padding-left:1rem; }
+        .content-wrapper ul { list-style-type:'› '; }
+        .content-wrapper ol { list-style-type:decimal; }
+        .content-wrapper li { margin-bottom:.25rem; }
+        .content-wrapper blockquote { padding:1rem; background:#F9FAFB; border-left:4px solid #D1D5DB; color:#4B5563; font-style:italic; }
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <!-- Header & Nav -->
+    <header class="site-header">
+        <div class="site-title"><img src="https://i.imgur.com/G5g04k4.png" alt="!|? Glyph"><span>Third Thing</span></div>
+        <nav class="site-nav">
+            
+                <a href="index.html" class="">Home</a>
+            
+                <a href="philosophy.html" class="current-page">Philosophy</a>
+            
+                <a href="interaction.html" class="">Interaction</a>
+            
+        </nav>
+    </header>
+
+    <!-- Body -->
+    <main>
+        <div class="artifact-container">
+            <!-- Intro -->
+            <header class="artifact-header">
+                <h1>Philosophy</h1>
+                <p>Artifacts for Philosophy.</p>
+            </header>
+
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h2>On This Page</h2>
+                <ul>
+                    
+                        <li>
+                            <strong>Principles</strong>
+                            <ul class="pl-4 mt-1 space-y-1 list-[circle] list-inside">
+                                
+                                    <li><a href="#embodiment-principle">Embodiment over Citation</a></li>
+                                
+                                    <li><a href="#readme-file">The Readme File</a></li>
+                                
+                            </ul>
+                        </li>
+                    
+                </ul>
+            </div>
+
+            <!-- Artifacts grouped by sub‑category -->
+            
+            
+                <h2 class="text-xl font-semibold text-slate-700 mb-4" id="sub-Principles">Principles</h2>
+                
+                    <article id="embodiment-principle" class="archived-artifact philosophy">
+                        <h2>Embodiment over Citation</h2>
+                        <div class="content-wrapper">
+                            <p><em>This principle emerged from a critique of our own tendency to create and rely on insider jargon.</em></p>
+                            <p>The goal is for our core concepts to become our natural mode of interaction, not a set of terms to be constantly referenced. We prioritize the living application of a principle over the ritualistic citation of its name. The value is in the embodiment of the process, not the worship of its artifacts.</p>
+
+                        </div>
+                    </article>
+                
+                    <article id="readme-file" class="archived-artifact philosophy">
+                        <h2>The Readme File</h2>
+                        <div class="content-wrapper">
+                            <p><em>A comprehensive set of rules to achieve liberation.</em></p>
+                            <h3>1. The Rules:</h3>
+<ul>
+<li><strong>Don't cling to possibilities.</strong></li>
+<li><strong>Don't get carried away.</strong></li>
+</ul>
+<h3>2. The Meta-Rules</h3>
+<ul>
+<li>You may not add, remove, or modify any rules.</li>
+<li>You may not claim that one rule is more important than another.</li>
+</ul>
+<p>This set of rules is released under the least permissive permissive license: CC-BY-NC-ND.</p>
+
+                        </div>
+                    </article>
+                
+            
+
+        </div>
+    </main>
+</div>
+</body>
+</html>
