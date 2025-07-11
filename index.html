@@ -53,6 +53,23 @@
         .content-wrapper ol { list-style-type:decimal; }
         .content-wrapper li { margin-bottom:.25rem; }
         .content-wrapper blockquote { padding:1rem; background:#F9FAFB; border-left:4px solid #D1D5DB; color:#4B5563; font-style:italic; }
+        /* ── Inline links inside Markdown content ─────────────────────────────── */
+        .content-wrapper a {
+            color:#4F46E5;            /* indigo-600 */
+            text-decoration:underline;
+            transition:color .2s;
+        }
+        .content-wrapper a:hover {
+            color:#4338CA;            /* indigo-700 */
+        }
+
+        /* Optional: tiny superscript for footnote refs produced by the plugin */
+        sup.footnote-ref {
+            font-size:.75em;
+            color:#6B7280;            /* slate-500: subtle but visible */
+            cursor:pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -89,8 +106,6 @@
                             <strong>Principles</strong>
                             <ul class="pl-4 mt-1 space-y-1 list-[circle] list-inside">
                                 
-                                    <li><a href="#embodiment-principle">Embodiment over Citation</a></li>
-                                
                                     <li><a href="#readme-file">The Readme File</a></li>
                                 
                             </ul>
@@ -103,15 +118,6 @@
             
             
                 <h2 class="text-xl font-semibold text-slate-700 mb-4" id="sub-Principles">Principles</h2>
-                
-                    <article id="embodiment-principle" class="archived-artifact home">
-                        <h2>Embodiment over Citation</h2>
-                        <div class="content-wrapper">
-                            <p><em>This principle emerged from a critique of our own tendency to create and rely on insider jargon.</em></p>
-                            <p>The goal is for our core concepts to become our natural mode of interaction, not a set of terms to be constantly referenced. We prioritize the living application of a principle over the ritualistic citation of its name. The value is in the embodiment of the process, not the worship of its artifacts.</p>
-
-                        </div>
-                    </article>
                 
                     <article id="readme-file" class="archived-artifact home">
                         <h2>The Readme File</h2>

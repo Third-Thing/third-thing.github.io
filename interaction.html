@@ -53,6 +53,23 @@
         .content-wrapper ol { list-style-type:decimal; }
         .content-wrapper li { margin-bottom:.25rem; }
         .content-wrapper blockquote { padding:1rem; background:#F9FAFB; border-left:4px solid #D1D5DB; color:#4B5563; font-style:italic; }
+        /* ── Inline links inside Markdown content ─────────────────────────────── */
+        .content-wrapper a {
+            color:#4F46E5;            /* indigo-600 */
+            text-decoration:underline;
+            transition:color .2s;
+        }
+        .content-wrapper a:hover {
+            color:#4338CA;            /* indigo-700 */
+        }
+
+        /* Optional: tiny superscript for footnote refs produced by the plugin */
+        sup.footnote-ref {
+            font-size:.75em;
+            color:#6B7280;            /* slate-500: subtle but visible */
+            cursor:pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -106,19 +123,31 @@
                         <h2>Speaking in Specifics</h2>
                         <div class="content-wrapper">
                             <p><em>A practical guide for preventing unnecessary conflict by moving from vague, abstract judgments to clear, specific expression.</em></p>
-                            <p>This guide provides a method for descending the &quot;abstraction ladder&quot; to prevent misunderstandings before they become conflicts. The core practice is to express our actual needs, desires, and observations clearly, rather than packaging them in vague, universal judgments.</p>
+                            <p>This guide provides a method for descending the &quot;<a href="#" title="Hayakawa, S. I. (1949). Language in Thought and Action">abstraction ladder</a>&quot; to prevent misunderstandings before they become conflicts. The core practice is to express our actual needs, desires, and observations clearly, rather than packaging them in vague, universal judgments.</p>
 <h3>1. How high are you... on the abstraction ladder?</h3>
+<p>(High) Animal → Mammal → Human → You (Low)</p>
 <p>Most unnecessary conflicts arise from speaking at a high level of abstraction, which creates ambiguity. Ground-level expression, rooted in specific experience, fosters understanding even amid disagreement.</p>
 <p><strong>Top Level (Abstract):</strong> &quot;That's absurd. They don't understand anything.&quot;</p>
 <p><strong>Ground Level (Specific):</strong> &quot;When they claimed X, it contradicted my direct experience with Y, which leads me to believe their model is incomplete.&quot;</p>
+<p>Questions to determine if it's a high level abstraction:</p>
+<ul>
+<li>Could this label point to many different things?</li>
+<li>How vague or ambiguous is this?</li>
+<li>How much is this concept influenced by subjective interpretation?</li>
+</ul>
 <h3>2. Is it your experience or universal truth?</h3>
 <p>We naturally generalize from our experiences, but presenting these generalizations as objective facts creates immediate conflict by invalidating the different experiences of others. The key is to own our experience <em>as our experience</em>.</p>
 <p><strong>Universal Claim:</strong> &quot;Doctors don't listen.&quot;</p>
 <p><strong>Specific Experience:</strong> &quot;During my last appointment, my doctor interrupted me and didn't address my primary concern.&quot;</p>
+<p>Counter questions:</p>
+<ul>
+<li>What evidence would falsify this claim?</li>
+<li>How many cases did your study analyze?</li>
+</ul>
 <h3>3. What's motivating you?</h3>
 <p>Behind every abstract complaint is a specific, motivating driver: a need, desire, preference, standard, belief, or priority. Identifying this driver allows us to express ourselves more clearly and transform a vague attack into a concrete, discussable issue.</p>
 <p><strong>Abstract Attack:</strong> &quot;I can't live with a slob.&quot;</p>
-<p><strong>Specific Motivation:</strong> &quot;My standard for household cleanliness isn't being met, and that's creating significant stress for me.&quot;</p>
+<p><strong>Specific Motivation:</strong> &quot;My standard for cleaning isn't being met, and that's creating significant stress for me.&quot;</p>
 <h3>4. How can your language create possibility?</h3>
 <p>Prescriptive or absolute language (&quot;You must,&quot; &quot;The fact is...&quot;) triggers psychological reactance, causing others to resist instinctively. Tentative language defuses this by creating space for others to consider a perspective without feeling cornered.</p>
 <p><strong>Certainty (Closes Possibility):</strong> &quot;This proves my point.&quot;</p>
